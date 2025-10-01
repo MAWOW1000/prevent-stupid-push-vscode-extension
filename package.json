@@ -1,0 +1,67 @@
+{
+  "name": "prevent-stupid-push",
+  "displayName": "prevent-stupid-push",
+  "description": "Prevent stupid push to critical branches like main, dev, master, develop",
+  "publisher": "devpham",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.104.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [
+    "onStartupFinished"
+  ],
+  "main": "./extension.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "prevent-stupid-push.checkBranch",
+        "title": "Prevent Stupid Push: Check Current Branch"
+      },
+      {
+        "command": "prevent-stupid-push.installHooks",
+        "title": "Prevent Stupid Push: Install Git Hooks"
+      }
+    ],
+    "configuration": {
+      "title": "Prevent Stupid Push",
+      "properties": {
+        "preventStupidPush.protectedBranches": {
+          "type": "array",
+          "default": [
+            "main",
+            "master",
+            "develop",
+            "dev"
+          ],
+          "description": "List of protected branch names that cannot be pushed to directly"
+        },
+        "preventStupidPush.enabled": {
+          "type": "boolean",
+          "default": true,
+          "description": "Enable or disable the push protection"
+        },
+        "preventStupidPush.showWarningNotification": {
+          "type": "boolean",
+          "default": true,
+          "description": "Show warning notification when trying to push to protected branches"
+        }
+      }
+    }
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.104.0",
+    "@types/mocha": "^10.0.10",
+    "@types/node": "22.x",
+    "eslint": "^9.34.0",
+    "@vscode/test-cli": "^0.0.11",
+    "@vscode/test-electron": "^2.5.2"
+  }
+}
