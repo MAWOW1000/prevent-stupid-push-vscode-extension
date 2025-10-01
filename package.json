@@ -1,9 +1,13 @@
 {
   "name": "prevent-stupid-push",
-  "displayName": "prevent-stupid-push",
+  "displayName": "Prevent Stupid Push",
+  "icon": "images/hi.png",
   "description": "Prevent stupid push to critical branches like main, dev, master, develop",
-  "publisher": "devpham",
-  "version": "0.0.1",
+  "publisher": "PreventStupidPush",
+  "repository": {
+    "url": "https://github.com/MAWOW1000/prevent-stupid-push-vscode-extension.git"
+  },
+  "version": "0.0.2",
   "engines": {
     "vscode": "^1.104.0"
   },
